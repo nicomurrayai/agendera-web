@@ -1,0 +1,29 @@
+{
+  "name": "agendera-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "upload:blob": "node scripts/upload-blob.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vercel/blob": "2.8.2",
+    "tailwindcss": "4.3.4",
+    "typescript": "^5",
+    "vitest": "5.1.0"
+  }
+}
