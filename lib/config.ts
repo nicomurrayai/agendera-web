@@ -7,7 +7,12 @@ const num = (k: string, d: number) => {
 
 export const SITE = {
   name: 'Agendera',
-  url: env('SITE_URL', 'http://localhost:3000').replace(/\/$/, ''),
+  url: env(
+    'SITE_URL',
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000',
+  ).replace(/\/$/, ''),
   supportEmail: env('SUPPORT_EMAIL', 'hola@tudominio.com.ar'),
   whatsapp: env('NEXT_PUBLIC_WHATSAPP'), // formato 549XXXXXXXXXX
   seller: {
