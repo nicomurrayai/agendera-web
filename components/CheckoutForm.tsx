@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getAttribution, track } from '@/lib/client-tracking';
+import { PaymentBrand } from '@/components/PaymentBrand';
 
 type Bump = { id: string; name: string; short: string; image: string; price: number };
 const ars = (n: number) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n);
@@ -76,6 +77,7 @@ export function CheckoutForm({ front, bumps }: { front: { name: string; short: s
         <div className="flex items-center justify-between text-lg"><span>Total</span><b>{ars(total)}</b></div>
         {error && <p className="mt-3 rounded-xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
         <button type="submit" disabled={loading} className="btn-primary mt-4 w-full">{loading ? 'Abriendo Mercado Pago…' : 'Completar mi compra'}</button>
+        <PaymentBrand />
         <p className="mt-3 text-center text-xs text-muted">Pago seguro con Mercado Pago: tarjeta de crédito (hasta 3 cuotas), débito o dinero en cuenta. Al continuar aceptás los <Link href="/terminos" className="underline">Términos</Link> y la <Link href="/privacidad" className="underline">Política de privacidad</Link>. Garantía de 7 días.</p>
       </div>
     </form>
